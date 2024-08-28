@@ -3,3 +3,11 @@ projects:
     dir: dev
   - name: prod
     dir: prod
+
+workflows:
+  default:
+    plan:
+      steps:
+        - init
+        - plan
+        - run: echo $PR_BRANCH $DEFAULT_BRANCH $PROJECT_DIR $PROJECT_NAME
