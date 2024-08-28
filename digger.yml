@@ -6,8 +6,17 @@ projects:
 
 workflows:
   default:
+    env_vars:
+      state:
+        - name: PLAINTEXT
+          value: lolvalue
+        - name: SUPERSECRET
+          value_from: SUPERSECRET
     plan:
       steps:
         - init
         - plan
         - run: echo $PR_BRANCH $DEFAULT_BRANCH $PROJECT_DIR $PROJECT_NAME
+        - run: echo $PLAINTEXT $SUPERSECRET
+
+
